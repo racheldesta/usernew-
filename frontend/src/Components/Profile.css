@@ -1,0 +1,27 @@
+.Profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .user-information__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-information__left img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .user-information__right {
+    display: flex;
+    flex-direction: column;
+  }
+  

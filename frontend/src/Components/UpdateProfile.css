@@ -1,0 +1,158 @@
+
+.large-box{
+    background: rgb(241, 232, 232);
+    margin: auto;
+   
+}
+.box {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #38AC91;
+    z-index: 90;
+}
+
+.box__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+
+.box__logo  {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+
+    margin-left: 22px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.box_navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.box_navigation-items li {
+    padding: 0 0.5rem;
+}
+
+.box_navigation-items li a {
+    color: white;
+    text-decoration: none;
+}
+
+.box__navigation img{
+    margin-left: 100px;
+}
+body{
+    background-color: #E0EFFE;
+}
+
+
+/* ProfileContainer.css */
+
+.update-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    /* padding-bottom: 55px; */
+    margin-left: 250px;
+    margin-right: 250px;
+    border-radius: 6px;
+    
+  } 
+
+  .update-text-container {
+    display: flex;
+    margin: auto;
+    margin-top: 22px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    padding-bottom: 13px;
+  }
+  
+  .myprofile{
+    margin-right: 10px;
+  }
+.updateprofile{
+    margin-left: 10px;
+}
+
+  .update-button {
+    /* padding: 8px 6px; */
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #38AC91;
+    color: #fff;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: -82px;
+    width: 15%;
+    height: 100%;
+  }
+  
+  .update-body1 {
+    display: grid;
+    background: #FDFEFF;
+    margin-top: 0px;
+    padding-bottom: 120px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 10px 0 5px -2px rgba(0, 0, 0, 0.5);
+    
+    
+  }
+  .update-profile{
+    display: flex;
+    margin-top: -75px;
+  }
+  
+.update-left-column,
+.update-right-column {
+  flex: 1;
+}
+
+.update-left-column input {
+  display: block;
+  width: 70%;
+  height: 60px;
+  margin-left: 82px;
+  margin-top: 80px;
+}
+
+.update-right-column input {
+    display: block;
+    width: 70%;
+    height: 60px;
+    margin-left: 32px;
+    margin-top: 80px;
+
+}
+  /* input {
+    height: 60px;
+    padding: 2px;
+    margin-bottom: 0px;
+    border: 2px solid #38AC91;
+    border-radius: 8px;
+  }  */
+
+  .update-profile-picture {
+    width: 10%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 42%;
+    border: solid #38AC91;
+  }

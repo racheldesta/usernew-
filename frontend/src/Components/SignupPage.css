@@ -1,0 +1,157 @@
+.signup{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #36AE8B;
+}
+
+.greeting{
+    font-style: syne;
+    font-size:40px ;
+    margin-top:200px;
+}
+.paragraph{
+    font-size:20px ;
+}
+
+
+.signup-page{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0  ;
+    background: #F5F5F5;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+    gap: 9px;
+    width: 100%;
+    /* background: blue; */
+    
+}
+
+.text{
+    color: #36AE8B;
+    font-size: 40px;
+    font-weight: 200;
+    font-family: syne;
+    align-items: center;
+    line-height: 51px;
+    
+ 
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 3%;
+    gap: 10px;
+    margin-top: 50px;
+    
+}
+
+.existing-user span{
+    color: #36AE8B;
+    cursor: pointer;
+}
+.existing-user{
+    cursor: pointer;
+    margin: auto;
+    font-size: 20px;
+    margin-top: -60px;
+
+}
+
+.submit-container{
+    margin:auto;
+    margin-bottom: 100px;
+    margin-top: -120px;
+    size: 100px;
+    
+
+}
+.input img{
+   
+    margin-left: 11px;
+    margin-top: 8px;
+    margin-bottom: -5px;
+    
+   
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 45px;
+    color: #E4E7E6;
+    background: #36AE8B;
+    border-radius: 47px;
+    font-family: syne;
+    font-size: 24px;
+    margin-top: 30px;
+    cursor: pointer;
+    
+
+}
+.input input{
+    margin:  15px;
+    height: 35px;
+    width: 420px;
+    border: none;
+    margin-left: 18px;
+    background:#E4E7E6;
+    margin-top: 10px;
+    
+}
+
+
+
+.input {
+    
+    align-items: center;
+    height: 45px;
+    background:#E4E7E6;
+    width: 500px;
+   
+    padding-bottom: 12px;
+    margin: 5px;
+    border-radius: 10px;
+    border: solid #36AE8B;
+    gap: 2px;
+    
+}
+.rectangle {
+    height: 40px;
+    width: 120px;
+    background-color:#49B891;
+    rotate: 40deg;
+   margin-top: 60px;
+   margin-left: 70%;
+}
+
+.triangle-left {
+ width: 0;
+  height: 0;
+  border-top: 150px solid #49B891;
+  border-left: 120px solid transparent;
+ 
+  margin-left: 88%;
+}
+.circle {
+    width: 200px;
+    height:145px;
+    border-radius: 0 150px 0 0;
+    background-color:  #49B891;
+    
+  }

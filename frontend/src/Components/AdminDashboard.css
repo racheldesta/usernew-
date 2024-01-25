@@ -1,0 +1,139 @@
+  .box {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #38AC91;
+    z-index: 90;
+}
+
+.box__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+
+.box__logo  {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+
+    margin-left: 22px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.box_navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.box_navigation-items li {
+    padding: 0 0.5rem;
+}
+
+.box_navigation-items li a {
+    color: white;
+    text-decoration: none;
+}
+
+.box__navigation img{
+    margin-left: 100px;
+}
+
+  .profile-picture {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: solid #38AC91;
+    
+  }
+
+  .search_container{
+    display: flex;
+    background: #E0EFFE;
+    width: 255%;
+    margin-left: -75%;
+    gap: 70%;
+  }
+  /* .search_bar{
+    background: rgb(0, 255, 136);
+  }  */
+
+  /* .search_input{
+    display: flex;
+    flex-direction: row;
+    border: solid #d1ce17;
+   
+    /* width: 125%; */
+  
+    .search_input input{
+    background: rgb(252, 252, 252);
+    margin-right: -50%;
+    /* padding-left: 42%; */
+
+    
+  }
+ .search_table{
+    display: flex;
+    flex-direction: row;
+    gap: 8%;
+    width: 250%;
+    margin-top: 6%;
+    margin-left: -70%;
+    background: rgb(255, 255, 255);
+    border-radius: 14Px;
+   
+ }
+.search_bar button{
+    flex: 1;
+    background: yellow;
+}
+.search_input{
+    background: white;
+    width: 15%;
+}
+
+.search_table {
+
+  background: rgb(255, 255, 255);
+}
+.search_table input{
+    width: 2%;
+    background: rgb(255, 255, 255);
+}
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+}
+.table1{
+  padding: 50px 1%;
+  width: 100%;
+  background-color: rgb(107, 17, 17);
+}
+.table{
+  border: 1px solid #38AC91;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+
+ 
+
+}
+
+.table1 tr{
+  border-bottom: 1px solid #38AC91;
+  color: rgb(0, 0, 0);
+}
+table1 tr th, table tr td{
+  padding: 1px;
+}
