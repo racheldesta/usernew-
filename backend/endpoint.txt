@@ -1,0 +1,11 @@
+
+my end points
+1  http://localhost:5000/accounts/register     registration
+
+2  http://localhost:5000/accounts/login     login
+
+3 http://localhost:5000/accounts/my-profile/id     getById fro individual dashoard
+
+4 http://localhost:5000/accounts/All-user          for Admin  for admin dashboard
+5 http://localhost:5000/accounts/update-profile/1  Admin update all account and user update it's own profile
+6  http://localhost:5000/accounts/Add-user         Admin add user

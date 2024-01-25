@@ -1,0 +1,21 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "",
+        "database": "userdata08ssB"
+    },
+    "secret": "d9b4371d-0ae3-4169-8dd9-19133564d518",
+    "emailFrom": "noneply@signup-verification-api.com",
+    "smtpOptions": {
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "auth": {
+            "user": "berneice.moen2@ethereal.email",
+            "pass": "V6QYzREvD66bbZF8C7"
+            }
+
+        }
+    
+}
