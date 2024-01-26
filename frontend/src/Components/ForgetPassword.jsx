@@ -22,7 +22,7 @@ function ForgetPassword () {
     Forget(data.email).then((res) => {
       if (res.success && res.data) {
         console.log(res.data);
-         navigate("/verification")
+        //  navigate("/verification")
       } else {
         console.log(res.error);
       }
