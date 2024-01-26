@@ -1,0 +1,249 @@
+.edit-pro-container-layout {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+  }
+  
+  .edit-pro-left-container {
+    flex: 1;
+    margin-top: 1%;
+    margin-right: 90px;
+    margin-left: 10%;
+    width: 42%;
+    height:92%;
+    margin-bottom: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .edit-pro-right-container {
+    flex: 1;
+    margin-right: -860px;
+    margin-bottom: 120px;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgb(255, 255, 255);
+    border: solid #38AC91;
+  }
+  
+  .edit-pro-right-container h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: -20px;
+    color: #000000;
+  }
+  
+  .box {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #38AC91;
+    z-index: 90;
+  }
+  
+  .box__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+  
+  .box__logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin-left: 22px;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .box_navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .box_navigation-items li {
+    padding: 0 0.5rem;
+  }
+  
+  .box_navigation-items li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .box__navigation img {
+    margin-left: 100px;
+  }
+  
+  .edit-pro-profile {
+    display: flex;
+    margin-top: -20px;
+    margin-left: 20px;
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    margin-right: 122px;
+    width: 90%;
+    border-radius: 14px;
+  }
+  
+  .edit-pro-left-column,
+  .edit-pro-right-column {
+    flex: 1;
+  }
+  
+  .edit-pro-left-column input,
+  .edit-pro-right-column input {
+    display: block;
+    width: 90%;
+    height: 15%;
+    margin-left: 2px;
+    margin-top: 6%;
+    padding: 10px;
+    border: 2px solid #38AC91;
+    border-radius: 8px;
+  }
+  
+  .edit-save-button {
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #38AC91;
+    color: #fff;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 15px;
+    width: 20%;
+    margin-left: 500px;
+  }
+  
+  .edit-admin-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -130px;
+  }
+  
+  .edit-profile-picture,
+  .edit-profile-pictureu {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: solid #38AC91;
+  }
+  
+  h3 {
+    margin-bottom: 25px;
+    margin-top: 2px;
+    align-items: center;
+  }
+  
+  p {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .edit-profile-line {
+    border: none;
+    border-top: 1px solid #dbd4d4;
+    margin: 40px 0;
+    margin-left: -67px;
+    width: 155%;
+  }
+  
+  .edit-user-location {
+    margin-top: 50px;
+    margin-bottom: 52px;
+    text-align: center;
+  }
+
+  .edit-user-location img{
+height: 70%;
+width: 70%;
+
+  }
+  .edit-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .edit-top-right-container{
+     width: 120%;
+    margin-bottom: 20px;
+    margin-left: -50%;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgb(255, 252, 252);
+  }
+  .edit-bottom-right-container {
+    width: 120%;
+    margin-bottom: 20px;
+    height: 302px;
+    margin-left: -50%;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgb(255, 252, 252);
+   
+  }
+  
+  .edit-bottom-right-container {
+    margin-top: -20px;
+  }
+  
+  .edit-right h2 {
+    font-size: 25px;
+    font-weight: bold;
+   margin: 0;
+    margin-bottom: 10px;
+    color: #000000;
+  }
+  
+  .profile-container-admin{
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+/* .edit-pro-left-column input{
+
+    width: 82%;
+    height: 15%;
+    margin-top: 22px;
+}
+.edit-pro-right-column input{
+    width: 82%;
+    height: 15%;
+    margin-top: 22px;
+} */
+
+
+  /* Add any additional table styling here */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+   
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: rgb(224, 224, 224);
+  }

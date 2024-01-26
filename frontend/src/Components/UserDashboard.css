@@ -47,6 +47,7 @@
   flex: 1;
   background-color: FDFEFF;
   padding: 3%;
+  width: 80%;
   background: rgb(252, 250, 250);
   border-radius: 14px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
@@ -69,7 +70,10 @@
 .updateprofile1{
   margin-left: 10px;
 }
-
+.myprofile1,
+  .updateprofile1{
+    cursor: pointer;
+  }
 .info-column {
   display: flex;
   flex-direction: column;

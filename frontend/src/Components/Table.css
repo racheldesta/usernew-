@@ -1,0 +1,64 @@
+.table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+  
+  .table .expand {
+    width: 40%;
+  }
+  
+  .table .label {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .label-pending {
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  .label-approved {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .label-rejected {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-icon,
+  .edit-icon {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 18px;
+  }
+  
+  .delete-icon:hover,
+  .edit-icon:hover {
+    color: #dc3545;
+  }
