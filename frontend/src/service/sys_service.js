@@ -54,13 +54,29 @@ export const Forget = async (Email) => {
     }
 };
 
-export const verification = async (verificationToken) => {
+// export const verification = async (verificationToken) => {
+//     try {
+//         console.log(`am running`, );
+//          const response = await api.post(`/accounts/verify-email`, {
+//             token: verificationToken
+//         });
+//         return { success: true, data: response.data};
+//     } catch (err) {
+//         if (err.response) {
+//             return { success: false, data: null, error: err.message };
+//         } else {
+//             console.log(`Error: ${err.message}`);
+//         }
+//     }
+// };
+// reset password
+export const Reset_Page = async (Password) => {
     try {
-        console.log(`am running`, );
-         const response = await api.post(`/accounts/verify-email`, {
-            token: verificationToken
+        console.log(`am running`);
+         const response = await api.post(`/accounts/reset-password`, {
+            password:Password
         });
-        return { success: true, data: response.data};
+        return { success: true, data: response.data };
     } catch (err) {
         if (err.response) {
             return { success: false, data: null, error: err.message };
@@ -69,12 +85,19 @@ export const verification = async (verificationToken) => {
         }
     }
 };
-// reset password
-export const Reset_Page = async (Password) => {
+
+export const setup_account = async (data) => {
     try {
-        console.log(`am running`);
-         const response = await api.post(`/accounts/reset-password`, {
-            password:Password
+        console.log(`am running`,data);
+        
+         const response = await api.post(`/accounts/update-profile/:id`, {
+          
+            name: data.name,
+            gender: data.gender,
+            phonenumber: data. phonenumber,
+            dateofbirth: data.dateofbirth,
+            location:data.location,
+            profilepicture:data.profilepicture
         });
         return { success: true, data: response.data };
     } catch (err) {
