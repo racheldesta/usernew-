@@ -59,7 +59,7 @@ const VerificationPage = () => {
   
 
   return (
-    <div className="signup">
+    <div className="verification">
       <div className="welcome">
         <h1 className="greeting">Welcome !</h1>
         <div class="triangle-left"></div>
@@ -79,9 +79,9 @@ const VerificationPage = () => {
       <h3>VERIFICATON</h3>
      
           <p className="ver-text1">Enter your  4 digits code that your received on your email.</p>
-        <div className="container">
+        <div className=" ver-container">
       
-      <div className="input-container">
+      <div className="ver-input-container">
         {code.map((value, index) => (
           <input
             key={index}
@@ -98,20 +98,19 @@ const VerificationPage = () => {
           />
         ))}
       </div>
-      <button disabled={code.some((value) => value === '') || code.length !== 4}>
+      <div className="timer">
+          {timer > 0 ? <span>{timer}s</span> : <span>00:30</span>}
+        </div>
+      <button className="ver-button" disabled={code.some((value) => value === '') || code.length !== 4}>
         VERIFY
       </button>
     </div>
        
-    {timer > 0 ? (
-        <div className="resend" >
-         <span>Didn't receive a code? Resend in {timer} seconds</span>
-        </div> 
-        ) : (
+ 
           <div className="resend">
-            <span onClick={handleResend}>Didn't receive a code? Resend now</span>
+          Didn't receive a code? <span onClick={handleResend}> Resend now</span>
       </div>
-        )}
+       
     </div>
     </div>
   );

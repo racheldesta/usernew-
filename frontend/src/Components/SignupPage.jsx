@@ -28,11 +28,11 @@ const SignupPage = () => {
 
     if  (data.username !== '' && data.email !== '' && data.password !== '' && data.confirmpassword !== '' && data.password===data.confirmpassword) {
       signup(data).then((res) => {
-        if (res.success && res.data) {
+        if (res?.success && res.data) {
           console.log(res.data);
            navigate("/login")
         } else {
-          console.log(res.error);
+          console.log(res?.error);
         }
       });
     }else{
@@ -87,7 +87,7 @@ const SignupPage = () => {
           {error && <div className="error_msg">{error}</div>}
         </div>
         <div className="submit-container">
-          <button type="submit" className="submit" onClick={handleSubmit}>SIGN UP</button>
+          <button type="submit" className="submit" >SIGN UP</button>
         </div>
 
         <div className="existing-user" >

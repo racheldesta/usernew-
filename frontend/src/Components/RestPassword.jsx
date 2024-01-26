@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Reset = () => {
   const [action, setAction] = useState("Create New Password");
   const navigate= useNavigate();
-  
+  const [showPassword, setShowPassword] = useState(false);
   
 
   return (
@@ -34,15 +34,16 @@ const Reset = () => {
 
         <div className="reset-inputs">
           <div className="reset-input">
-          { <img src={email_icon} alt="" /> }
-            <input type="email"  placeholder="Email"/>
+          { <img src={password_icon} alt="" /> }
+            <input type={showPassword ? "text" : "password"} placeholder="Password"/>
+            <img src={invisible} alt="" onClick={() => setShowPassword(!showPassword)} /> 
           </div>
 
           <div className="reset-input">
           { <img src={password_icon} alt="" /> }
         
-            <input type="password" placeholder="Password" />
-            { <img src={invisible} alt="" /> }
+            <input type={showPassword ? "text" : "password"} placeholder=" Confirm Password" />
+             
           </div>
         </div>
         <div className="reset-submit-container">

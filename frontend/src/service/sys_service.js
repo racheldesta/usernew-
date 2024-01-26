@@ -38,19 +38,35 @@ export const signup = async (data) => {
     }
 };
 
-// export const verification = async (verificationToken) => {
-//     try {
-//         console.log(`am running`, );
-//          const response = await api.post(`/accounts/verify-email`, {
-//             token: verificationToken
-//         });
-//         return { success: true, data: response.data};
-//     } catch (err) {
-//         if (err.response) {
-//             return { success: false, data: null, error: err.message };
-//         } else {
-//             console.log(`Error: ${err.message}`);
-//         }
-//     }
-// };
+export const Forget = async (Email) => {
+    try {
+        console.log(`am running`);
+         const response = await api.post(`/accounts/forgot-password`, {
+            email: Email
+        });
+        return { success: true, data: response.data };
+    } catch (err) {
+        if (err.response) {
+            return { success: false, data: null, error: err.message };
+        } else {
+            console.log(`Error: ${err.message}`);
+        }
+    }
+};
+
+export const verification = async (verificationToken) => {
+    try {
+        console.log(`am running`, );
+         const response = await api.post(`/accounts/verify-email`, {
+            token: verificationToken
+        });
+        return { success: true, data: response.data};
+    } catch (err) {
+        if (err.response) {
+            return { success: false, data: null, error: err.message };
+        } else {
+            console.log(`Error: ${err.message}`);
+        }
+    }
+};
 
