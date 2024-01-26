@@ -4,7 +4,7 @@ import user_icon from "../Assets/person.png";
 import select_cal_icon from "../Assets/select_cal_icon.png";
 import location from "../Assets/location.png";
 import photo from "../Assets/Photo_6.png";
-import arrow from "../Assets/arow.png";
+import arrow from "../Assets/arow_icon.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -69,19 +69,7 @@ const SetupProfile = () => {
     formData.append("location", location);
     formData.append("profilePicture", profilePicture);
 
-    // Send the data to the backend using axios
-    axios
-      .put("http://localhost:5000/accounts/update-profile/1", formData)
-      .then((response) => {
-        // Handle the response from the backend
-        console.log(response.data);
-        // Redirect to the next page or handle success
-        navigate("/adduser"); // Replace "/next-page" with your desired next page URL
-      })
-      .catch((error) => {
-        // Handle errors
-        console.error(error);
-      });
+
   };
 
   return (
