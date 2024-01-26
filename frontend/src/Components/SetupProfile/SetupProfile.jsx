@@ -7,6 +7,7 @@ import photo from "../Assets/Photo_6.png";
 import arrow from "../Assets/arow_icon.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { setup_account } from "../../service/sys_service";
 
 const SetupProfile = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,21 @@ const SetupProfile = () => {
   const [location, setLocation] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewProfilePicture, setPreviewProfilePicture] = useState(photo);
+  const [error, setError] = useState("");
+  const [data, setData] = useState({
+    name: "",
+    gender: "",
+    phonenumber: "",
+    dateofbirth: "",
+    location:"",
+    profilepicture:"",
+  });
+
+  
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -59,18 +75,23 @@ const SetupProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Create a FormData object to send the data
-    const formData = new FormData();
-    formData.append("Name", name);
-    formData.append("gender", gender);
-    formData.append("phoneNumber", phoneNumber);
-    formData.append("birthdate", birthdate);
-    formData.append("location", location);
-    formData.append("profilePicture", profilePicture);
-
+    if  (data.name !== '' && data.gender !== '' && data.phonenumber !== '' && data.password===data.confirmpassword) {
+      setup_account(data).then((res) => {
+        if (res?.success && res.data) {
+          console.log(res.data);
+           navigate("/userdashboard")
+        } else {
+          console.log(res?.error);
+        }
+      });
+    }else{
+      alert("empty field")
+    }
 
   };
+
+
+
 
   return (
     <div className="signup">
@@ -107,7 +128,7 @@ const SetupProfile = () => {
               type="text"
               id="name"
               placeholder="Name"
-              value={name}
+              value={data.name}
               onChange={handleNameChange}
             />
           </div>
@@ -117,7 +138,7 @@ const SetupProfile = () => {
             <select
               id="gender"
               placeholder="Gender"
-              value={gender}
+              value={data.gender}
               onChange={handleGenderChange}
             >
               <option value="male">Male</option>
@@ -130,7 +151,7 @@ const SetupProfile = () => {
               type="text"
               placeholder="Phone Number"
               id="phoneNumber"
-              value={phoneNumber}
+              value={data.phonenumber}
               onChange={handlePhoneNumberChange}
             />
           </div>
@@ -140,7 +161,7 @@ const SetupProfile = () => {
             <input
               type="date"
               id="birthdate"
-              value={birthdate}
+              value={data.birthofdate}
               onChange={handleBirthdateChange}
             />
           </div>
@@ -151,7 +172,7 @@ const SetupProfile = () => {
               type="text"
               id="location"
               placeholder="Location"
-              value={location}
+              value={data.location}
               onChange={handleLocationChange}
             />
           </div>
@@ -161,6 +182,7 @@ const SetupProfile = () => {
               type="file"
               id="profilePicture"
               accept="image/*"
+              value={data.profilepicture}
               onChange={handleProfilePictureChange}
             />
           </div>
