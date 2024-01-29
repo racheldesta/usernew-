@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./LoginPage.css";
+import invisible from "../Assets/pass_invisible.png";
 import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
@@ -11,6 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "" });
   const [error1, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -23,6 +25,7 @@ const LoginPage = () => {
         console.log(res.data);
          navigate("/setup")
       } else {
+        setError("Wrong password"); // Display error message
         console.log(res.error);
       }
     });
@@ -61,7 +64,8 @@ const LoginPage = () => {
           </div>
           <div className="login-input">
             {<img src={password_icon} alt="" />}
-            <input type="password" placeholder="Password" name="password" onChange={handleChange} value={data.password} />
+            <input type={showPassword ? "text" : "password"}  placeholder="Password" name="password" onChange={handleChange} value={data.password} />
+            <img src={invisible} alt="" className="invisible-i" onClick={() => setShowPassword(!showPassword)} /> 
           </div>
         </div>
         {error1 && <div className="error_msg">{error1}</div>}

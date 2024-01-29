@@ -70,11 +70,12 @@ export const Forget = async (Email) => {
 //     }
 // };
 // reset password
-export const Reset_Page = async (Password) => {
+export const Reset_Page = async (Password, ConfirmPassword) => {
     try {
         console.log(`am running`);
          const response = await api.post(`/accounts/reset-password`, {
-            password:Password
+            password:Password,
+            confirmPassword:ConfirmPassword
         });
         return { success: true, data: response.data };
     } catch (err) {
@@ -85,6 +86,7 @@ export const Reset_Page = async (Password) => {
         }
     }
 };
+
 
 export const setup_account = async (data) => {
     try {

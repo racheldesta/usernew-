@@ -17,29 +17,40 @@ const SignupPage = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle submit",data);
 
-    if  (data.username !== '' && data.email !== '' && data.password !== '' && data.confirmpassword !== '' && data.password===data.confirmpassword) {
-      signup(data).then((res) => {
-        if (res?.success && res.data) {
-          console.log(res.data);
-           navigate("/login")
-        } else {
-          console.log(res?.error);
-        }
-      });
-    }else{
-      alert("empty field")
+    if (data.username !== "" && data.email !== "" && data.password !== "" && data.confirmpassword !== "") {
+      if (data.password === data.confirmpassword) {
+        signup(data)
+          .then((res) => {
+            if (res?.success && res.data) {
+              console.log(res.data);
+              navigate("/login");
+            } else {
+              console.log(res?.error);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        setError("Passwords do not match");
+      }
+    } else {
+      setError("Please fill in all fields");
     }
-
   };
+
 
 
 
@@ -77,15 +88,18 @@ const SignupPage = () => {
 
           <div className="input">
             {<img src={password_icon} alt="" />}
-            <input type="password" placeholder="Password" name="password" onChange={handleChange} value={data.password} />
+            <input type={showPassword ? "text" :"password"} placeholder="Password" name="password" onChange={handleChange} value={data.password} />
+            <img src={invisible} alt="" className="invisible-icon" onClick={() => setShowPassword(!showPassword)} /> 
 
           </div>
           <div className="input">
             {<img src={password_icon} alt="" />}
-            <input type="password" placeholder="Confirm Password" name="confirmpassword" onChange={handleChange} value={data.confirmpassword} />
+            <input type={showPassword ? "text" :"password"} placeholder="Confirm Password" name="confirmpassword" onChange={handleChange} value={data.confirmpassword} />
           </div>
-          {error && <div className="error_msg">{error}</div>}
+          {error && <div className="login-error_msg">{error}</div>}
+
         </div>
+        {!passwordMatch && <div className="login-error_msg">Passwords do not match</div>}
         <div className="submit-container">
           <button type="submit" className="submit" >SIGN UP</button>
         </div>

@@ -58,7 +58,7 @@
   align-items: center;
   /* margin: auto; */
   margin-top: -2%;
-  text-decoration: underline;
+
   text-decoration-skip-ink: none;
   padding-bottom: 13px;
 
@@ -66,9 +66,14 @@
 
 .myprofile1{
   margin-right: 10px;
+  font-weight: bold;
+  color: #38AC91;
+  text-decoration: underline #38AC91;
 }
 .updateprofile1{
   margin-left: 10px;
+  font-weight: bold;
+  text-decoration: underline #000000;
 }
 .myprofile1,
   .updateprofile1{

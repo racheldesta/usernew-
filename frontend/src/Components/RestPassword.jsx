@@ -18,9 +18,8 @@ const Reset = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    Reset_Page(data.password).then((res) => {
+    e.preventDefault(); 
+    Reset_Page(data.password,data.confirmpassword).then((res) => {
       if (res.success && res.data) {
         console.log(res.data);
          navigate("/login")

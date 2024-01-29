@@ -11,6 +11,7 @@ function ForgetPassword () {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "" });
   const [error1, setError] = useState("");
+  const [linkSent, setLinkSent] = useState(false); // New state variable
 
 
   const handleChange = ({ currentTarget: input }) => {
@@ -22,6 +23,7 @@ function ForgetPassword () {
     Forget(data.email).then((res) => {
       if (res.success && res.data) {
         console.log(res.data);
+        setLinkSent(true); // Set linkSent to true when the link is sent
         //  navigate("/verification")
       } else {
         console.log(res.error);
@@ -63,9 +65,13 @@ function ForgetPassword () {
                          
           </form>
         </div>
+        {linkSent ? (
+          <div className="check-mail-text">Reset link has been sent to your email.</div>
+        ) : (
         <div className="forget-submit-containerf">
         <button className="forget-submitf" onClick={handleSubmit}>CONTINUE</button>
         </div>
+        )}
       </div>
     </div>
   );

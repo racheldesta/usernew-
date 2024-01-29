@@ -32,8 +32,8 @@ const UpdateProfile = (props) => {
       
       <div className="update-body1">
       <div className="update-text-container">
-      <span className="myprofile1"onClick={()=>navigate("/userdashboard")}>My Profile</span>
-      <span className="updateprofile1"onClick={()=>navigate("/updateprofile")}>Update Profile</span>
+      <span className="myprofile2"onClick={()=>navigate("/userdashboard")}>My Profile</span>
+      <span className="updateprofile2"onClick={()=>navigate("/updateprofile")}>Update Profile</span>
     </div>
     <div className="update-picture-container">
           <img className="update-profile-picture" src={profilePic6} alt="" />

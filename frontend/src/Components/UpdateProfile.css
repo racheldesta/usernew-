@@ -76,16 +76,21 @@ body{
     display: flex;
     margin: auto;
     margin-top: 22px;
-    text-decoration: underline;
+   
     text-decoration-skip-ink: none;
     padding-bottom: 13px;
   }
   
-  .myprofile{
+  .myprofile2{
     margin-right: 10px;
+    font-weight: bold;
+    text-decoration: underline #000000;
   }
-.updateprofile{
+.updateprofile2{
     margin-left: 10px;
+    color: #38AC91;
+    font-weight: bold;
+    text-decoration: underline #38AC91;
 }
 
   .update-button {
@@ -102,8 +107,8 @@ body{
     width: 15%;
     
   }
-  .myprofile1,
-  .updateprofile1{
+  .myprofile2,
+  .updateprofile2{
     cursor: pointer;
   }
   .update-body1 {

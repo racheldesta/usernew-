@@ -169,11 +169,14 @@ border-radius: 8px;
 
     .profile-picture3 {
         border-radius: 50%;
-        width: 23%;
-        height: 23%;
+        width: 183px;
+        height: 193px;
         margin-top: -298px;
         border: solid white;
+        object-fit: cover;
+        background-color: #63E296;
        
+
       }
       .arrow img{
         width: 5%;

@@ -3,10 +3,9 @@ import "./SetupProfile.css";
 import user_icon from "../Assets/person.png";
 import select_cal_icon from "../Assets/select_cal_icon.png";
 import location from "../Assets/location.png";
-import photo from "../Assets/Photo_6.png";
+import pp from "../Assets/pp.png";
 import arrow from "../Assets/arow_icon.png";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { setup_account } from "../../service/sys_service";
 
 const SetupProfile = () => {
@@ -16,7 +15,7 @@ const SetupProfile = () => {
   const [birthdate, setBirthdate] = useState("");
   const [location, setLocation] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
-  const [previewProfilePicture, setPreviewProfilePicture] = useState(photo);
+  const [previewProfilePicture, setPreviewProfilePicture] = useState(pp);
   const [error, setError] = useState("");
   const [data, setData] = useState({
     name: "",
@@ -70,7 +69,7 @@ const SetupProfile = () => {
     setBirthdate("");
     setLocation("");
     setProfilePicture(null);
-    setPreviewProfilePicture(photo);
+    setPreviewProfilePicture(pp);
   };
 
   const handleSubmit = (e) => {
