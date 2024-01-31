@@ -7,6 +7,7 @@ export const signin = async (Email,Password) => {
             password:Password
         });
         return { success: true, data: response.data };
+     
     } catch (err) {
         if (err.response) {
             return { success: false, data: null, error: err.message };
@@ -87,21 +88,31 @@ export const Reset_Page = async (Password, ConfirmPassword) => {
     }
 };
 
-
+const token = localStorage.getItem('token')
+const id = localStorage.getItem('id')
 export const setup_account = async (data) => {
     try {
         console.log(`am running`,data);
         
-         const response = await api.post(`/accounts/update-profile/:id`, {
+         const response = await api.put(`/accounts/id`, {
           
-            name: data.name,
+            Name: data.name,
             gender: data.gender,
             phonenumber: data. phonenumber,
             dateofbirth: data.dateofbirth,
             location:data.location,
             profilepicture:data.profilepicture
-        });
+        },
+     
+        {
+            headers: {
+                Authorization: `Bearer ${id}`
+              }
+        }
+        );
+        console.log(data.Name)
         return { success: true, data: response.data };
+        // console.log(response.data)
     } catch (err) {
         if (err.response) {
             return { success: false, data: null, error: err.message };

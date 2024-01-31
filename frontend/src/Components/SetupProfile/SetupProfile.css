@@ -99,7 +99,7 @@
     margin: 5px;
     border-radius: 10px;
     border: solid #36AE8B;
-    gap: 2px;
+    gap: 4px;
     
 }
 .rectangle {
@@ -183,3 +183,6 @@ border-radius: 8px;
         margin-top: 7%;
       }
       
+.location {
+  margin-top:12px ;
+}

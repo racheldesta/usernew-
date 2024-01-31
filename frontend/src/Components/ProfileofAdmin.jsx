@@ -8,11 +8,12 @@ import active from "./Assets/active.png";
 import add from "./Assets/add.png";
 import female from "./Assets/female.png";
 import lady from "./Assets/lady.png";
+import { useNavigate } from "react-router-dom";
 
 const ProfileofAdmin = () => {
   const [inputValue, setInputValue] = useState("");
   const [profile, setProfile] = useState(null);
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -56,7 +57,7 @@ const ProfileofAdmin = () => {
           <div className="spacer"></div>
           <div className="box_navigation-items">
             <ul>
-              <li><a href="/">Login/Logout</a></li>
+              <li><a href="/">Logout</a></li>
             </ul>
           </div>
           <div className="profile-picture-container">
@@ -106,7 +107,7 @@ const ProfileofAdmin = () => {
               <input type="text" placeholder="Comfirm Pasword" value={inputValue} onChange={handleChange} />
             </div>
           </div>
-          <button className="save-button">Save</button>
+          <button className="save-button" onClick={() => navigate("/admindashboard")} >Save</button>
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import './AddUser.css';
 import cube from "./Assets/cube.png";
 import profilePic6 from "./Assets/Photo_6.png";
+import user_icon from "./Assets/person.png";
+import password_icon from "./Assets/password.png";
 const AddUser = (props) => (
     // className="large-box"
     <div >

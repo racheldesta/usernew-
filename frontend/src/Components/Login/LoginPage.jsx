@@ -22,7 +22,12 @@ const LoginPage = () => {
     e.preventDefault();
     signin(data.email,data.password).then((res) => {
       if (res.success && res.data) {
-        console.log(res.data);
+        const {jwtToken} = res.data;
+        const {id} = res.data;
+        localStorage.setItem('token', jwtToken)
+        localStorage.setItem('id', id)
+        // console.log(jwtToken)
+        console.log(res.data)
          navigate("/setup")
       } else {
         setError("Wrong password"); // Display error message

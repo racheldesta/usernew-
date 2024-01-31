@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './UpdateProfile.css';
 import cube from "./Assets/cube.png";
 import profilePic6 from "./Assets/Photo_6.png";
+import user2 from "./Assets/user2.png";
+import marrow from "./Assets/more_arrow.png";
+
 const UpdateProfile = (props) => {
     // className="large-box"
    
     const navigate = useNavigate();
-   
-   
-   
+    const [profile, setProfile] = useState(null);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+
+    useEffect(() => {
+      fetchProfileData().then((profileData) => {
+        setProfile(profileData);
+      });
+    }, []);
+  
+    const fetchProfileData = () => {
+      // Simulating an API call to fetch profile data
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const profileData = {
+            picture: profilePic6,
+            username: 'Kebede Abebe',
+            
+          };
+          resolve(profileData);
+        }, 1000);
+      });
+    };
+  
+    if (!profile) {
+      return <div>L...</div>;
+    }
+  
     return(
     <div >
     <header className="box">
@@ -20,10 +50,32 @@ const UpdateProfile = (props) => {
            
             <div className="spacer"></div>
             <div className="box_navigation-items">
-                <ul>
-                    <li><a href="/">Login/Logout</a></li>
-                </ul>
+            <h4>{profile.username}</h4>
             </div>
+            <div className="profile-picture-container">
+          <img className="profile-picture" src={profile.picture} alt="" />
+        </div>
+        <div className="dropdown">
+          <img src={marrow} alt="" onClick={toggleDropdown} />
+          {showDropdown && (
+              <div className="dropdown-menu">
+                <div
+                  className="dropdown-item"
+                  onClick={() => navigate("/")}
+                >
+                  {/* <img src={arrow} alt="" /> */}
+                  Add Account
+                </div>
+                <div
+                  className="dropdown-item"
+                  onClick={() => navigate("/login")}
+                >
+                  {/* <img src={logout} alt="" /> */}
+                  Logout
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
     </header>
     <div className="update-container">

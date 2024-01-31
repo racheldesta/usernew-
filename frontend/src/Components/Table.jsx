@@ -1,52 +1,82 @@
-// import React from "react";
-// import { FaTrashAlt, FaEdit } from "react-icons/fa";
-// import "./Table.css";
+import React from "react";
+import DataTable  from 'react-data-table-component';
 
-// const Table = ({ rows, deleteRow, editRow }) => {
-//   return (
-//     <div className="table-wrapper">
-//       <table className="table">
-//         <thead>
-//           <tr>
-//             <th>Page</th>
-//             <th className="expand">Description</th>
-//             <th>Status</th>
-//             <th>Actions</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {rows.map((row, idx) => {
-//             const statusText =
-//               row.status.charAt(0).toUpperCase() + row.status.slice(1);
+const Table = ({ rows, deleteRow, editRow }) => {
+const columns =[
+{
+    name:'User Name',
+    selector: row => row.username
+},
+{
+    name:'Email Address',
+    selector: row => row.email
+},
+{
+    name:'Status',
+    selector: row => row.status
+},
+{
+    name:'Role',
+    selector: row => row.role
+},
+{
+    name:'Activity',
+    selector: row => row.activity
+},
+{
+    name:'Action',
+    selector: row => row.action
+}
+]
 
-//             return (
-//               <tr key={idx}>
-//                 <td>{row.page}</td>
-//                 <td className="expand">{row.description}</td>
-//                 <td>
-//                   <span className={`label label-${row.status}`}>
-//                     {statusText}
-//                   </span>
-//                 </td>
-//                 <td className="fit">
-//                   <span className="actions">
-//                     <FaTrashAlt
-//                       className="delete-icon"
-//                       onClick={() => deleteRow(idx)}
-//                     />
-//                     <FaEdit
-//                       className="edit-icon"
-//                       onClick={() => editRow(idx)}
-//                     />
-//                   </span>
-//                 </td>
-//               </tr>
-//             );
-//           })}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
+const data = [
+    {
+    username:'Aster Aweke',
+    email:'aster.aweke@gmail.com',
+    status:'Active',
+    role:'Admin',
+    activity:'Loged in',
+    },
+    {
+    username:'Robe Getachew',
+    email:'robe.getachew@gmail.com',
+    status:'Active',
+    role:'user',
+    activity:'update profile',
+    },
+   {
+    username:'Abebe Kebede',
+    email:'abebe.kenede@gmail.com',
+    status:'Inactive',
+    role:'user',
+    activity:'update location',
+    },
+    {
+    username:'Eden Tesfaye',
+    email:'eden.tesfaye@gmail.com',
+    status:'Active',
+    role:'user',
+    activity:'changed password',
+    },
+    {
+    username:'kebede Abebe',
+    email:'kebede.abebe@gmail.com',
+    status:'Active',
+    role:'user',
+    activity:'logged out',
+    },
 
-// export default Table;
+
+]
+  return (
+    <div className="containe3r mt-5">
+      <DataTable
+
+      columns={columns}
+      data={data}
+      ></DataTable>
+    </div>
+  );
+};
+
+export default Table;

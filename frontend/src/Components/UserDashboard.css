@@ -31,15 +31,20 @@
 .box_navigation-items h4 {
   margin-top: 1%;
   margin-bottom: 2%;
-  margin-left: -25%;
+  margin-left: 70%;
   color: white;
+  width: 140px;
+ 
  }
 .profile-picture {
-  width: 30%;
-  height: 30%;
+  
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-bottom: 10px;
-  border: solid #ffffff;
+  margin-top: 15px;
+  border: solid #38AC91;
+  margin-right: -92px;
   
 }
 
@@ -113,6 +118,10 @@ p {
   width: 45%;
  
 }
+.profile-picture-container {
+  position: relative;
+
+}
 .user-location{
   margin-top: -0px;
   margin-bottom: 52px;
@@ -121,7 +130,34 @@ p {
 
 img{
   margin-right: 12px;
-  margin-bottom: 1%;
+  /* margin-bottom: 1%; */
 
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 10;
+  background-color: #fffbfb;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.dropdown-item img {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+}
+.dropdown{
+  margin-right: 100px;
+
+}

@@ -8,11 +8,17 @@ import active from "./Assets/active.png";
 import add from "./Assets/add.png";
 import male from "./Assets/male.png";
 import user2 from "./Assets/user2.png";
+import marrow from "./Assets/more_arrow.png";
 
 const UserDashboard = () => {
   const [inputValue, setInputValue] = useState("");
   const [profile, setProfile] = useState(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
+  
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -60,6 +66,27 @@ const UserDashboard = () => {
           </div>
           <div className="profile-picture-container">
             <img className="profile-picture" src={profile.picture} alt="" />
+          </div>
+          <div className="dropdown">
+          <img src={marrow} alt="" onClick={toggleDropdown} />
+          {showDropdown && (
+              <div className="dropdown-menu">
+                <div
+                  className="dropdown-item"
+                  onClick={() => navigate("/")}
+                >
+                  {/* <img src={arrow} alt="" /> */}
+                  Add Account
+                </div>
+                <div
+                  className="dropdown-item"
+                  onClick={() => navigate("/login")}
+                >
+                  {/* <img src={logout} alt="" /> */}
+                  Logout
+                </div>
+              </div>
+            )}
           </div>
         </nav>
       </header>

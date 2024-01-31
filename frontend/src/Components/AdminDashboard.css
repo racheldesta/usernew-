@@ -48,18 +48,18 @@
   margin-left: 100px;
 }
 
-.profile-picture {
+/* .profile-picture {
   width: 70px;
   height: 70px;
   border-radius: 50%;
   margin-bottom: 10px;
   border: solid #38AC91;
   
-}
+} */
 .profile-container{
   display: flex;
   flex-direction: column;
-  gap: 82px;
+  gap: 42px;
 }
 
 .search_container{
@@ -124,12 +124,12 @@ margin-left: 12px;
   background: rgb(248, 248, 248);
 }
 .role-container {
-margin: auto;
+margin-top:16px;
 width: 22%;
 height: 38px;
 display: flex;
 align-items: center;
-margin-bottom: 10px;
+/* margin-bottom: 10px; */
 border: 2px solid #38AC91;
 border-radius: 10px;
 }
@@ -144,3 +144,33 @@ justify-content: center;
 align-items: center;
 margin-top: 100px;
 } */
+
+.delete{
+  margin-left: 42px;
+}
+.edit{
+ margin-right: 54px;
+
+}
+
+.container-mt-5{
+width: 110%;
+margin-top: -40px;
+margin-left: 50px;
+
+
+}
+.addacount button{
+  margin-top: -81px;
+width: 102%;
+margin-left: 742%;
+border-radius: 14px;
+background-color: #38AC91;
+}
+.alluser{
+  margin-top: -41px;
+  width: 20%;
+  margin-left: -87%;
+  
+  
+}

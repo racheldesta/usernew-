@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./SetupProfile.css";
 import user_icon from "../Assets/person.png";
@@ -8,8 +9,11 @@ import arrow from "../Assets/arow_icon.png";
 import { useNavigate } from "react-router-dom";
 import { setup_account } from "../../service/sys_service";
 
+
 const SetupProfile = () => {
-  const [name, setName] = useState("");
+  const token = localStorage.getItem('token')
+  console.log(token)
+  const [Name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [birthdate, setBirthdate] = useState("");
@@ -17,20 +21,8 @@ const SetupProfile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewProfilePicture, setPreviewProfilePicture] = useState(pp);
   const [error, setError] = useState("");
-  const [data, setData] = useState({
-    name: "",
-    gender: "",
-    phonenumber: "",
-    dateofbirth: "",
-    location:"",
-    profilepicture:"",
-  });
 
-  
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
-  };
-
+  const countries = ["USA", "Canada", "UK", "Australia", "Germany"]; // Add more countries as needed
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -74,23 +66,28 @@ const SetupProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if  (data.name !== '' && data.gender !== '' && data.phonenumber !== '' && data.password===data.confirmpassword) {
+
+    const data = {
+      Name,
+      gender,
+      phonenumber: phoneNumber,
+      dateofbirth: birthdate,
+      location,
+      profilepicture: profilePicture,
+    };
+    //if (data.name !== '' && data.gender !== '' && data.phonenumber !== '') {
       setup_account(data).then((res) => {
         if (res?.success && res.data) {
           console.log(res.data);
-           navigate("/userdashboard")
+          navigate("/userdashboard");
         } else {
           console.log(res?.error);
         }
       });
-    }else{
-      alert("empty field")
-    }
-
+    // } else {
+    //   alert("empty field");
+    // }
   };
-
-
-
 
   return (
     <div className="signup">
@@ -109,37 +106,40 @@ const SetupProfile = () => {
           set up your profrile.Let's know a little bit about you.this won't
           take long.
         </p>
-        <div className="arrow">{<img src={arrow} alt="" />}</div>
+        <div className="arrow">
+          <img src={arrow} alt="" />
+        </div>
         <div className="rectangle"></div>
         <div className="circle"></div>
       </div>
-
       <div className="signup-page">
         <div className="header">
           <div className="text">Finish Account Setup</div>
         </div>
         {/* setup form */}
         <form className="setup-inputs" onSubmit={handleSubmit}>
+          
           {/* name */}
           <div className="setup-input">
-            {<img src={user_icon} alt="" />}
+            <img src={user_icon} alt="" />
             <input
               type="text"
               id="name"
               placeholder="Name"
-              value={data.name}
+              value={Name}
               onChange={handleNameChange}
             />
           </div>
           {/* gender */}
           <div className="setup-input">
-            {<img src={user_icon} alt="" />}
+            <img src={user_icon} alt="" />
             <select
               id="gender"
               placeholder="Gender"
-              value={data.gender}
+              value={gender}
               onChange={handleGenderChange}
             >
+              <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -150,30 +150,34 @@ const SetupProfile = () => {
               type="text"
               placeholder="Phone Number"
               id="phoneNumber"
-              value={data.phonenumber}
+              value={phoneNumber}
               onChange={handlePhoneNumberChange}
             />
           </div>
           {/* date of birth */}
           <div className="setup-input">
-            {<img src={select_cal_icon} alt="" />}
+            <img src={select_cal_icon} alt="" />
             <input
               type="date"
               id="birthdate"
-              value={data.birthofdate}
+              value={birthdate}
               onChange={handleBirthdateChange}
             />
           </div>
           {/* location */}
           <div className="setup-input">
-            {<img src={location} alt="" />}
-            <input
-              type="text"
-              id="location"
+            <img src={location} alt="" />
+            <select
+              className="location"
               placeholder="Location"
-              value={data.location}
+              value={location}
               onChange={handleLocationChange}
-            />
+            >
+              <option value="">Select Country</option>
+              {countries.map(country => (
+                <option key={country} value={country}>{country}</option>
+              ))}
+            </select>
           </div>
           {/* profile picture */}
           <div className="setup-input">
@@ -181,19 +185,14 @@ const SetupProfile = () => {
               type="file"
               id="profilePicture"
               accept="image/*"
-              value={data.profilepicture}
               onChange={handleProfilePictureChange}
             />
           </div>
           <div className="setup-container">
-            <button
-              type="button"
-              className="clear-submit"
-              onClick={handleClear}
-            >
+            <button type="button" className="clear-submit" onClick={handleClear}>
               Clear
             </button>
-            <button type="submit" className="finish-submit">
+            <button type="submit" className="finish-submit" >  
               Finish
             </button>
           </div>

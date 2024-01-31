@@ -9,7 +9,9 @@ import add from "./Assets/add.png";
 import female from "./Assets/female.png";
 import lady from "./Assets/lady.png";
 import boss from "./Assets/boss.png";
-// import './AdmineditUserprofile.css'
+import marrow from "./Assets/more_arrow.png";
+import back_arrow from "./Assets/Back _arrow.png";
+import { useNavigate } from "react-router-dom";
 
 const AdmineditUser = () => {
   const [inputValue, setInputValue] = useState("");
@@ -17,7 +19,13 @@ const AdmineditUser = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(true);
-  
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
@@ -40,20 +48,12 @@ const AdmineditUser = () => {
     const formattedYesterday = yesterday.toISOString().split('T')[0];
     return date === formattedYesterday;
   };
+  
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
-  useEffect(() => {
-    setPasswordMatch(password === confirmPassword);
-  }, [password, confirmPassword]);
 
-  useEffect(() => {
-    fetchProfileData().then((profileData) => {
-      setProfile(profileData);
-    });
-  }, []);
-
-  const fetchProfileData = () => {
+  const profileD = () => {
     // Simulating an API call to fetch profile data
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -71,14 +71,50 @@ const AdmineditUser = () => {
     });
   };
 
+  // const fetchProfileData = () => {
+  //   // Simulating an API call to fetch profile data
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       const profileData = {
+  //         picture: profilePic6,
+  //         username: 'Kebede Abebe',
+  //       };
+  //       resolve(profileData);
+  //     }, 1000);
+  //   });
+  // };
+
+  useEffect(() => {
+    profileD().then((profileD) => {
+      setProfile(profileD);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   fetchProfileData().then((profileData) => {
+  //     setProfile(profileData);
+  //   });
+  // }, []);
+
+  useEffect(() => {
+    setPasswordMatch(password === confirmPassword);
+  }, [password, confirmPassword]);
+
   if (!profile) {
     return <div>Loading...</div>;
   }
-  
+
+
+
+
   return (
 
+    <div className="root">
     
+      <img src={back_arrow}  className='backarrow' alt=""  onClick={() => navigate("/admindashboard")}/>
+      
     <div className="profile-container-admin">
+      
       <header className="box">
         <nav className="box__navigation">
           <div></div>
@@ -87,7 +123,7 @@ const AdmineditUser = () => {
           <div className="spacer"></div>
           <div className="box_navigation-items">
             <ul>
-              <li><a href="/">Login/Logout</a></li>
+              <li><a href="/">Logout</a></li>
             </ul>
           </div>
           <div className="profile-picture-container">
@@ -95,12 +131,13 @@ const AdmineditUser = () => {
           </div>
         </nav>
       </header>
-
+       
      {/* <div className="edit-pro-container-layout"> */}
 
   {/* left side container with user information */}
 
   <div className="edit-pro-left-container">
+ 
     <div className="edit-admin-profile">
       <div className="edit-profile-column">
 
@@ -187,7 +224,7 @@ const AdmineditUser = () => {
         </div>
         </div>
       </div>
-    // </div>
+     </div>
   );
 };
 

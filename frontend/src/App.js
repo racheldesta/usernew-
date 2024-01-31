@@ -16,6 +16,7 @@ import AdminDashboard from "./Components/AdminDashboard";
 import Admin2 from "./Components/Admin2";
 import AdmineditUser from "./Components/AdmineditUserprofile";
 import Table from "./Components/Table";
+import SetupProfile2 from "./Components/SetupProfile/setupProfile2";
 
 
 
@@ -25,8 +26,8 @@ function App() {
     <Routes>
       <Route path="/" element={<SignupPage/>}></Route>
       <Route path="/login" element={<LoginPage/>}></Route>
-      <Route path="/setup" element={<SetupProfile/>}></Route>
-      {/* <Route path="/profile" element={<Profile/>}></Route> */}
+      {/* <Route path="/setup" element={<SetupProfile/>}></Route> */}
+      <Route path="/profile" element={<Profile/>}></Route>
       <Route path="/forget" element={<ForgetPassword/>}></Route>
       <Route path="/verification" element={<VerificationPage/>}></Route>
       <Route path="/reset" element={<Reset/>}></Route>
@@ -38,6 +39,7 @@ function App() {
       <Route path="/admin2" element={<Admin2/>}></Route>
       <Route path="/adminedituser" element={<AdmineditUser/>}></Route>
       <Route path="/table" element={<Table/>}></Route>
+      <Route path="/setup" element={<SetupProfile2/>}></Route>
 
 
     </Routes>

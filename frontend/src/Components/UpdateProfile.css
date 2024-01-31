@@ -165,3 +165,31 @@ body{
     margin-left: 42%;
     border: solid #38AC91;
   }
+  
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 10;
+  background-color: #fffbfb;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.dropdown-item img {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+}
+.dropdown{
+  margin-right: 100px;
+
+}
