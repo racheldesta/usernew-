@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import './AdminDashboard.css';
 import cube from "./Assets/cube.png";
@@ -11,6 +12,10 @@ import ddelete from "./Assets/delete.png";
 
 function AdminDashboard() {
   const [role, setRole] = useState('User');
+  const [username, setUsername] = useState('');
+  const [userNameFilter, setUserNameFilter] = useState('');
+  const [roleFilter, setRoleFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -25,7 +30,9 @@ function AdminDashboard() {
     },
     {
       name: 'Status',
-      selector: row => row.status,
+      selector: row => (
+        <span style={{ color: row.status === 'Active' ? "#00FF00" : 'red' }}>{row.status}</span>
+      ),
     },
     {
       name: 'Role',
@@ -39,41 +46,114 @@ function AdminDashboard() {
       name: 'Action',
       selector: row => (
         <div>
-          <img src={edit} className="edit" alt="" />
-          <img src={ddelete} className="delete" alt="" />
+          <Link to={`/adminedituser/${row.userId}`}>
+            <img src={edit} className="edit" alt="" />
+          </Link>
+          <img
+            src={ddelete}
+            className="delete"
+            alt=""
+            onClick={() => updateUserStatus(row.userId, row.status === "Active")}
+          />
         </div>
       ),
       wrap: true,
     },
   ];
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://192.168.0.241:5000/accounts/All-user/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
+    const fetchData = async () => {
+      const searchParams = new URLSearchParams();
+      if (username) {
+        searchParams.append('username', username);
+      }
+      if (userNameFilter) {
+        searchParams.append('userNameFilter', userNameFilter);
+      }
+      if (roleFilter) {
+        searchParams.append('roleFilter', roleFilter);
+      }
+      if (statusFilter) {
+        searchParams.append('statusFilter', statusFilter);
+      }
+
+      try {
+        const response = await axios.get(`http://192.168.0.242:5000/accounts/All-user/?${searchParams.toString()}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         const mappedData = response.data.map((item) => ({
+          userId: item.id,
           username: item.username,
           email: item.email,
-          status: item.status,
+          status: item.status ? 'Active' : 'Inactive',
           role: item.role,
           activity: item.activity,
         }));
+
         setData(mappedData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [token, username, userNameFilter, roleFilter, statusFilter]);
+
+  const updateUserStatus = (userId, currentStatus) => {
+    const newStatus = !currentStatus; // Toggle the status value
+  
+    axios
+      .put(
+        `http://192.168.0.242:5000/accounts/status/${userId}`,
+        { status: newStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("User status updated successfully");
+  
+        // Update the status in the local state (data)
+        setData((prevData) => {
+          const updatedData = prevData.map((item) => {
+            if (item.userId === userId) {
+              return { ...item, status: newStatus ? "Active" : "Inactive" };
+            }
+            return item;
+          });
+          return updatedData;
+        });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error updating user status", error);
       });
-  }, [token]);
-
+  };
   const handleRoleChange = (event) => {
     setRole(event.target.value);
   };
 
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handleUserNameFilterChange = (event) => {
+    setUserNameFilter(event.target.value);
+  };
+
+  const handleRoleFilterChange = (event) => {
+    setRoleFilter(event.target.value);
+  };
+
+  const handleStatusFilterChange = (event) => {
+    setStatusFilter(event.target.value);
+  };
   return (
     <div className="profile-container">
       <header className="box">
@@ -97,22 +177,29 @@ function AdminDashboard() {
         <div className="search_container">
           <h3>USer Management</h3>
           <div className="search_input">
-            <input type="text" placeholder="Search User" />
-            <img src={search} alt="" />
+          <input type="text" placeholder="Search User" value={username} onChange={handleUsernameChange} />            <img src={search} alt="" />
           </div>
         </div>
-
         <div className="search_table">
-          <input type="text" placeholder="User Name" />
-          <div className="role-container">
-            <label htmlFor="role" placeholder="role"></label>
-            <select id="role" value={role} onChange={handleRoleChange}>
+          <input type="text" placeholder="User Name" value={userNameFilter} onChange={handleUserNameFilterChange} />
+          
+            <label htmlFor="role" placeholder="Role"></label>
+            <select id="role" value={roleFilter} onChange={handleRoleFilterChange}>
+              <option value="">Role</option>
               <option value="User">User</option>
               <option value="Admin">Admin</option>
             </select>
-          </div>
-          <input type="text" placeholder="status" />
-          <button className="filter-button">Filter</button>
+        
+       
+            <label htmlFor="status" className="status" placeholder="status"></label>
+            <select id="status" value={statusFilter} onChange={handleStatusFilterChange}>
+              <option value="User">Status</option>
+              <option value="User">Active</option>
+              <option value="Admin">Inactive</option>
+            </select>
+         
+          {/* <input type="text" placeholder="status" value={statusFilter} onChange={handleStatusFilterChange} />
+          <button className="filter-button">Filter</button> */}
         </div>
       </div>
 
@@ -128,8 +215,6 @@ function AdminDashboard() {
           columns={columns}
           data={data}
           noHeader
-         
-         
           highlightOnHover
           striped
           dense

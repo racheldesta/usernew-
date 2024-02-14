@@ -84,11 +84,11 @@
 .search_table{
   display: flex;
   flex-direction: row;
-  gap: 8%;
-  width: 250%;
+  gap: 4%;
+  width: 450%;
  padding-bottom: 35px;
   margin-top: 6%;
-  margin-left: -70%;
+  margin-left: -600px;
   background: rgb(255, 255, 255);
   border-radius: 14Px;
  
@@ -171,6 +171,11 @@ background-color: #38AC91;
   margin-top: -41px;
   width: 20%;
   margin-left: -87%;
-  
-  
 }
+
+.status{
+  border: #38AC91;
+}
+
+
+

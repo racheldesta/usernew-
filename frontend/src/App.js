@@ -17,6 +17,7 @@ import Admin2 from "./Components/Admin2";
 import AdmineditUser from "./Components/AdmineditUserprofile";
 import Table from "./Components/Table";
 import SetupProfile2 from "./Components/SetupProfile/setupProfile2";
+import AdminDashboard2 from "./Components/AdminDashboard2";
 
 
 
@@ -40,6 +41,7 @@ function App() {
       <Route path="/adminedituser" element={<AdmineditUser/>}></Route>
       <Route path="/table" element={<Table/>}></Route>
       <Route path="/setup" element={<SetupProfile2/>}></Route>
+      {/* <Route path="/admindashboard" element={<AdminDashboard2/>}></Route> */}
 
 
     </Routes>

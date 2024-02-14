@@ -9,7 +9,7 @@
   background: #38AC91;
   
 }
-.welcome{
+/* .welcome{
    color: #FFFFFF;    
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 }
 .paragraph{
   font-size:20px ;
-}
+} */
 
 
 .ver-page{
@@ -57,7 +57,7 @@
 }
 
 
-
+/* 
 .rectangle {
   height: 40px;
   width: 120px;
@@ -83,7 +83,7 @@ margin-left: 88%;
     margin-top: -42px;
     
   }
-
+ */
   .ver-container {
     display: flex;
     flex-direction: column;

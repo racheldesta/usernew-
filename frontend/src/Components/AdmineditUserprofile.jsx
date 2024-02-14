@@ -1,5 +1,7 @@
 import React, { useState , useEffect} from "react";
 import './AdmineditUserprofile.css';
+import { useParams } from "react-router-dom";
+
 import cube from "./Assets/cube.png";
 import profilePic6 from "./Assets/Photo_6.png";
 import user2 from "./Assets/user2.png";
@@ -14,6 +16,7 @@ import back_arrow from "./Assets/Back _arrow.png";
 import { useNavigate } from "react-router-dom";
 
 const AdmineditUser = () => {
+  const { userId } = useParams();
   const [inputValue, setInputValue] = useState("");
   const [profile, setProfile] = useState(null);
   const [password, setPassword] = useState("");

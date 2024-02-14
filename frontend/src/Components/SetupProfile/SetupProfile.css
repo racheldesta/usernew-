@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-.greeting{
+/* .greeting{
     font-style: syne;
     font-size:40px ;
     margin-top:200px;
@@ -16,7 +16,7 @@
 .paragraph{
     margin-top: 6%;
     font-size:20px ;
-}
+} */
 
 
 .setup-page{
@@ -102,32 +102,47 @@
     gap: 4px;
     
 }
-.rectangle {
-    height: 40px;
-    width: 120px;
-    background-color:#49B891;
-    rotate: 40deg;
-   margin-top: 60px;
-   margin-left: 70%;
+.srectangle {
+  height: 60px;
+  width: 160px;
+  background-color:#49B891;
+  rotate: 40deg;
+ margin-top: 60px;
+ margin-left: 70%;
 }
 
-.triangle-left-setup {
- width: 0;
-  height: 0;
-  margin-top: 32%;
-  border-top: 150px solid #49B891;
-  border-left: 120px solid transparent;
- 
-  margin-left: 88%;
+.striangle-left {
+width: 0;
+height: 0;
+border-top: 150px solid #49B891;
+border-left: 120px solid transparent;
+margin-top: -712px;
+margin-left: 88%;
 }
-.circle {
-    width: 200px;
-    height:145px;
-    border-radius: 0 150px 0 0;
-    background-color:  #49B891;
-    
-  }
-  form {
+.scircle {
+  width: 340px;
+  height:330px;
+  border-radius: 0 350px 0 0;
+  margin-top: -73px;
+  background-color:  #49B891;
+  
+}
+.invisible-icon {
+  position: absolute;
+  right: 218px;
+  top: 51%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login-error_msg {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+
+ 
+}
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -138,10 +153,15 @@ label {
 }
 
 input, select {
-  width: 90%;
+  width: 503px;
   padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ffffff;
+  margin-top:18px ;
+height: 60px;
+border-radius: 8px;
+  border: 2px solid #38AC91;
+  outline: none;
+  gap: 8px;
+  margin-left: 82px;
 }
 
 button {
@@ -185,4 +205,9 @@ border-radius: 8px;
       
 .location {
   margin-top:12px ;
+}
+.error {
+  color: red;
+  text-align: center;
+  /* margin-bottom: 102px; */
 }

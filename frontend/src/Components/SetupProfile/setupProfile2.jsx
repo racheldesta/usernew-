@@ -66,7 +66,7 @@ const SetupProfile2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+   
     // console.log(name)
     // const data = new FormData();
     // data.append("name", name);
@@ -78,7 +78,7 @@ const SetupProfile2 = () => {
 
     // console.log(data)
     axios
-  .put(`http://192.168.0.241:5000/accounts/update-profile/${id}`, {
+  .put(`http://192.168.0.242:5000/accounts/update-profile/${id}`, {
     name,
     gender,
     phoneNumber,
@@ -89,14 +89,16 @@ const SetupProfile2 = () => {
       Authorization: `Bearer ${token}`,
       id: id
     }
+    
   })
   .then((response) => {
-     console.log(response.data);
+    // console.log(response.data);
     navigate("/admindashboard");
   })
   .catch((error) => {
     console.log(error);
   });
+
   }
 
   return (
@@ -118,8 +120,9 @@ const SetupProfile2 = () => {
         <div className="arrow">
           <img src={arrow} alt="" />
         </div>
-        <div className="rectangle"></div>
-        <div className="circle"></div>
+        <div className="srectangle"></div>
+        <div className="scircle"></div>
+        <div className="striangle-left"></div>
       </div>
       <div className="signup-page">
         <div className="header">

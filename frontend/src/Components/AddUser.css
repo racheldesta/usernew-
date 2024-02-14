@@ -115,6 +115,7 @@ body{
   display: block;
   width: 70%;
   height: 60px;
+  padding-left: 53px;
   margin-left: 82px;
   margin-top: 80px;
 }
@@ -123,6 +124,7 @@ body{
     display: block;
     width: 70%;
     height: 60px;
+    padding-left: 53px;
     margin-left: 32px;
     margin-top: 80px;
 
@@ -150,4 +152,23 @@ body{
     height: auto;
     object-fit: cover;
     border-radius: 50%;
+  }
+
+  .location {
+    /* Add your styles here */
+    /* For example: */
+    width: 524px;
+    padding: 10px;
+    border: 1px solid #38AC91;
+    border-radius: 4px;
+  }
+
+  
+  .gender {
+    /* Add your styles here */
+    /* For example: */
+    width: 524px;
+    padding: 10px;
+    border: 1px solid #38AC91;
+    border-radius: 4px;
   }

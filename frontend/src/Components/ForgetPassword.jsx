@@ -43,9 +43,11 @@ function ForgetPassword () {
            and say goodbye Your
           spreadsheets.
         </p>
+        <div className="head">
         <h2>Your time</h2>
         <h2>Your data</h2>
         <h2>Your peace of mind!</h2>
+        </div>
         <div class="rectangle"></div>
         <div class="circle"></div>
       </div>
@@ -56,15 +58,15 @@ function ForgetPassword () {
           <p className="forget-text1">Enter your email for verification process.We will send 4 digits code to your email.</p>
         </div>
 
-        <div className="forget-inputs">
-          <form className="forget-input" onSubmit={handleSubmit}>
-           <img src={email_icon} alt="" /> 
-           <input type="email" placeholder="email" name="email" onChange={handleChange} value={data.email} 
+        
+          <form className="forget-inputs" onSubmit={handleSubmit}>
+           <img src={email_icon} alt="" className="femail_icon" /> 
+           <input type="email" placeholder="Email" name="email" onChange={handleChange} value={data.email} 
                     required
                 />
                          
           </form>
-        </div>
+    
         {linkSent ? (
           <div className="check-mail-text">Reset link has been sent to your email.</div>
         ) : (

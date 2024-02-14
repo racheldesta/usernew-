@@ -1,4 +1,4 @@
-.login{
+.signup{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -7,23 +7,9 @@
     padding: 0;
     height: 100vh;
     background: #36AE8B;
+    font-size: px;
 }
-.welcome{
-     color: #FFFFFF;    
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-   
-    
-}
-.greeting{
-    font-style: syne;
-    font-size:40px ;
-    margin-top:200px;
-}
-.paragraph{
-    font-size:20px ;
-}
+ 
 
 
 .login-page{
@@ -60,9 +46,9 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding: 3%;
-    gap: 50px;
-    
+ 
+    gap: 20px;
+    width: 600px;
 }
 
 
@@ -83,8 +69,9 @@
 .forgot-password{
     cursor: pointer;
     margin: auto;
-    font-size: 20px;
+    font-size: 23px;
     margin-top: -60px;
+    color: #38AC91;
     
 }
 
@@ -93,14 +80,15 @@
     margin-bottom: 100px;
     
 }
-.login-input img{
+/* .login-inputs img{
    
-    margin-left: 11px;
-    margin-top: 8px;
-    margin-bottom: -5px;
-    
+    position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: 30px;
+  margin-top: 35px;
    
-}
+} */
 .login-submit{
     display: flex;
     justify-content: center;
@@ -117,19 +105,21 @@
     
 
 }
-.login-input input{
+.login-inputs input{
     margin:  15px;
-    height: 35px;
-    width: 420px;
-    border: none;
-    margin-left: 2px;
     background:#E4E7E6;
     margin-top: 10px;
+    font-size: 20px;
+    padding-left: 55px;
+    border-color: #38AC91;
+    outline: none;
+    width: 550px;
+    
     
 }
 
 
-
+/* 
 .login-input {
     
     align-items: center;
@@ -143,16 +133,16 @@
     border: solid #36AE8B;
     gap: 2px;
     
-}
-.rectangle {
+} */
+/* .rectangle {
     height: 40px;
     width: 120px;
     background-color:#49B891;
     rotate: 40deg;
    margin-top: 60px;
    margin-left: 70%;
-}
-
+} */
+/* 
 .triangle-left {
  width: 0;
   height: 0;
@@ -167,7 +157,7 @@
     border-radius: 0 150px 0 0;
     background-color:  #49B891;
     
-  }
+  } */
   .error_msg {
     color: red;
     margin-top: -50px;
@@ -178,8 +168,25 @@
 
   .invisible-i {
     position: absolute;
-    right: 218px;
-    top: 47%;
+    width: 35px;
+    height: 35px;
+    right: 172px;
+    top: 430px;
     transform: translateY(-50%);
     cursor: pointer;
   }
+.user_icon{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin-left: 30px;
+  margin-top: 31px;
+} 
+
+.pass_icon{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+    margin-top: 144px;
+  } 

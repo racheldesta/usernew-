@@ -10,17 +10,17 @@ const VerificationPage = () => {
     const [timer, setTimer] = useState(30);
 
 
-    useEffect(() => {
-      let interval = null;
-      if (timer > 0) {
-        interval = setInterval(() => {
-          setTimer((prevTimer) => prevTimer - 1);
-        }, 1000);
-      } else {
-        clearInterval(interval);
-      }
-      return () => clearInterval(interval);
-    }, [timer]);
+    // useEffect(() => {
+    //   let interval = null;
+    //   if (timer > 0) {
+    //     interval = setInterval(() => {
+    //       setTimer((prevTimer) => prevTimer - 1);
+    //     }, 1000);
+    //   } else {
+    //     clearInterval(interval);
+    //   }
+    //   return () => clearInterval(interval);
+    // }, [timer]);
   
 
     const handleChange = (index, event) => {
@@ -49,11 +49,31 @@ const VerificationPage = () => {
         }}
     }
   };
-     const handleResend = () => {
+  const handleResend = () => {
     // Reset the timer to 30 seconds
     setTimer(30);
+    // Start the timer
+    
+    let interval = setInterval(() => {
+      setTimer((prevTimer) => {
+        if (prevTimer === 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prevTimer - 1;
+      });
+    }, 1000);
     // Implement logic to resend the verification code
     // ...
+    axios.post('/resend-code') // Replace '/resend-code' with the actual API endpoint or function to resend the code/link
+    .then(response => {
+      console.log('Code/link resent successfully!');
+      // Handle the response or update the UI accordingly
+    })
+    .catch(error => {
+      console.error('Error resending code/link:', error);
+      // Handle the error or display an error message
+    });
   };
 
   
@@ -68,9 +88,11 @@ const VerificationPage = () => {
            and say goodbye Your
           spreadsheets.
         </p>
+        <div className="head">
         <h2>Your time</h2>
         <h2>Your data</h2>
         <h2>Your peace of mind!</h2>
+        </div>
         <div class="rectangle"></div>
         <div class="circle"></div>
       </div>
@@ -99,8 +121,12 @@ const VerificationPage = () => {
         ))}
       </div>
       <div className="timer">
-          {timer > 0 ? <span>{timer}s</span> : <span>00:30</span>}
-        </div>
+  {timer > 0 ? (
+    <span>0:{timer < 10 ? `0${timer}` : timer}</span>
+  ) : (
+    <span>0:30</span>
+  )}
+</div>
       <button className="ver-button" disabled={code.some((value) => value === '') || code.length !== 4}>
         VERIFY
       </button>
